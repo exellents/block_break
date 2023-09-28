@@ -159,5 +159,8 @@ void Main()
 		emoji.scaled(0.2).drawAt(ball.x, ball.y);
 
 		Rect(20, 40, 400, 100);
+
+		//emoji.rotated(1_deg).drawAt(100, 100);
+
 	}
 }
