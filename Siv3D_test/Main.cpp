@@ -36,12 +36,18 @@ void Main()
 
 	int score = 0;
 
+	bool start = false;
+
 
 	const Font font{ FontMethod::MSDF, 48 };
 
 
 	while (System::Update())
 	{
+		if (MouseL.down())
+		{
+			start = true;
+		}
 		font(U"score : {}"_fmt(score)).draw(32, 0, 0, ColorF{ 1.0, 1.0, 1.0 });
 		if (combo > 1) {
 			font(U"{} combo!"_fmt(combo)).draw(32, 300, 400, ColorF{ 1.0, 1.0, 1.0 });
@@ -51,7 +57,10 @@ void Main()
 		const Rect paddle{ Arg::center(Cursor::Pos().x, 500), paddlex, 10 };
 
 		// ボールを移動させる | Move the ball
-		ball.moveBy(ballVelocity * Scene::DeltaTime());
+		if (start == true)
+		{
+			ball.moveBy(ballVelocity * Scene::DeltaTime());
+		}
 
 		// ブロックを順にチェックする | Check bricks in sequence
 		for (auto it = bricks.begin(); it != bricks.end(); ++it)
