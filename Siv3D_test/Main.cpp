@@ -36,6 +36,7 @@ void Main()
 
 	int score = 0;
 
+
 	const Font font{ FontMethod::MSDF, 48 };
 
 
@@ -160,7 +161,7 @@ void Main()
 
 		Rect(20, 40, 400, 100);
 
-		//emoji.rotated(1_deg).drawAt(100, 100);
+		//emoji.rotated(100_deg).drawAt(100, 100);
 
 	}
 }
